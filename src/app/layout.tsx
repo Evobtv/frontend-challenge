@@ -4,8 +4,7 @@ import { Inter, Quattrocento } from 'next/font/google'
 
 import { QueryProvider } from '@/lib/query-client'
 
-import { LayoutWrapper } from '@/components/LayoutWrapper'
-import { Toaster } from '@/components/ui/sonner'
+import { ConditionalLayout } from '@/components/ConditionalLayout'
 
 import './globals.css'
 
@@ -42,10 +41,7 @@ export default function RootLayout({
         <QueryProvider>
           <BrandProvider>
             <BrandThemeProvider>
-              <LayoutWrapper>
-                {children}
-                <Toaster richColors theme="light" />
-              </LayoutWrapper>
+              <ConditionalLayout>{children}</ConditionalLayout>
             </BrandThemeProvider>
           </BrandProvider>
         </QueryProvider>

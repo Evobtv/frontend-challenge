@@ -1,7 +1,8 @@
 'use client'
 
-import { memo, useCallback } from 'react'
+import { memo } from 'react'
 import { LogIn, User } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 import { Button } from '../ui/button'
 
@@ -12,20 +13,14 @@ interface AuthButtonsProps {
 export const AuthButtons = memo(function AuthButtons({
   isMobile = false,
 }: AuthButtonsProps) {
-  const handleSignUp = useCallback(() => {
-    console.log('Sign up clicked')
-  }, [])
-
-  const handleSignIn = useCallback(() => {
-    console.log('Sign in clicked')
-  }, [])
+  const router = useRouter()
 
   if (isMobile) {
     return (
       <Button
         variant="ghost"
         size="icon"
-        onClick={handleSignIn}
+        onClick={() => router.push('/entrar')}
         aria-label="Entrar"
       >
         <LogIn className="text-evob-primary size-5" />
@@ -38,7 +33,7 @@ export const AuthButtons = memo(function AuthButtons({
       <Button
         variant="ghost"
         size="lg"
-        onClick={handleSignUp}
+        onClick={() => router.push('/criar-conta')}
         aria-label="Cadastre-se"
       >
         <User size={16} className="text-evob-primary" />
@@ -47,7 +42,7 @@ export const AuthButtons = memo(function AuthButtons({
       <Button
         variant="secondary"
         size="lg"
-        onClick={handleSignIn}
+        onClick={() => router.push('/entrar')}
         aria-label="Entrar"
       >
         <LogIn size={16} />
