@@ -26,7 +26,7 @@ export function LayoutWrapper({ children }: LayoutWrapperProps) {
   const handleSearch = useCallback(
     (query: string) => {
       const url = query.trim() ? `/?search=${encodeURIComponent(query)}` : '/'
-      router.push(url)
+      router.push(url, { scroll: false })
     },
     [router]
   )

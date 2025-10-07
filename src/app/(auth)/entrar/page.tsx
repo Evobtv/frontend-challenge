@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useState } from 'react'
+import { useBrand } from '@/contexts/BrandContext'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Mail } from 'lucide-react'
 import Image from 'next/image'
@@ -8,8 +9,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
-
-import { useBrandData } from '@/hooks/useBrand'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -31,7 +30,7 @@ type LoginFormData = z.infer<typeof loginSchema>
 
 export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false)
-  const { data: brandData } = useBrandData()
+  const { brandData } = useBrand()
   const router = useRouter()
 
   const form = useForm<LoginFormData>({

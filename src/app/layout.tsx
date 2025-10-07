@@ -1,4 +1,4 @@
-import { BrandProvider, BrandThemeProvider } from '@/contexts/BrandContext'
+import { BrandProvider } from '@/contexts/BrandContext'
 import type { Metadata } from 'next'
 import { Inter, Quattrocento } from 'next/font/google'
 
@@ -40,9 +40,7 @@ export default function RootLayout({
       >
         <QueryProvider>
           <BrandProvider>
-            <BrandThemeProvider>
-              <ConditionalLayout>{children}</ConditionalLayout>
-            </BrandThemeProvider>
+            <ConditionalLayout>{children}</ConditionalLayout>
           </BrandProvider>
         </QueryProvider>
       </body>

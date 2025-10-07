@@ -1,19 +1,18 @@
 'use client'
 
 import { useState } from 'react'
+import { useBrand } from '@/contexts/BrandContext'
 import { Mail } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-
-import { useBrandData } from '@/hooks/useBrand'
 
 import { SignupForm } from './_components/SignupForm'
 import { SignupSuccess } from './_components/SignupSuccess'
 
 export default function SignupPage() {
   const [isSuccess, setIsSuccess] = useState(false)
-  const { data: brandData } = useBrandData()
+  const { brandData } = useBrand()
   const router = useRouter()
 
   const handleSignupSuccess = () => {
