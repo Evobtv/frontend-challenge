@@ -185,7 +185,6 @@ export default function LoginPage() {
           sizes="50vw"
           quality={90}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-transparent" />
       </div>
     </div>
   )
