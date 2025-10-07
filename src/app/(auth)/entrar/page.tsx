@@ -66,18 +66,14 @@ export default function LoginPage() {
               <Image
                 src={brandData.logo}
                 alt={brandData.name || 'EVOB'}
-                width={24}
-                height={24}
-                className="size-6"
+                width={80}
+                height={32}
               />
             ) : (
               <div className="bg-evob-primary flex size-6 items-center justify-center rounded">
                 <span className="text-xs font-bold text-white">E</span>
               </div>
             )}
-            <span className="text-lg font-bold">
-              {brandData?.name || 'EVOB'}
-            </span>
           </Link>
         </header>
 
