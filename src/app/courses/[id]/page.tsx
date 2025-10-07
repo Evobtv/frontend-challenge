@@ -1,6 +1,6 @@
 'use client'
 
-import { use, useMemo } from 'react'
+import { use, useEffect, useMemo } from 'react'
 import dynamic from 'next/dynamic'
 import { notFound } from 'next/navigation'
 
@@ -45,6 +45,16 @@ export default function CourseDetailPage({ params }: PageProps) {
     }
   }
 
+  useEffect(() => {
+    if (course) {
+      document.title = `${course.title} | EVOB`
+    }
+
+    return () => {
+      document.title = 'EVOB'
+    }
+  }, [course])
+
   if (isLoading) {
     return <LoadingSpinner />
   }
@@ -57,7 +67,7 @@ export default function CourseDetailPage({ params }: PageProps) {
     <>
       <CourseBanner course={course} />
 
-      <div className="mx-auto max-w-7xl px-4 py-4 lg:py-12">
+      <div className="mx-auto max-w-7xl p-4 lg:py-12">
         <div className="mb-4 md:hidden">
           <FavoriteButton
             isFavorite={courseIsFavorited}
