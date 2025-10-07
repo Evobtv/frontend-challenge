@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useMemo } from 'react'
+import { Suspense, useCallback, useMemo } from 'react'
 import { X } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
 
@@ -15,8 +15,9 @@ import { HeroSection } from '@/components/(home)/Hero'
 import { Button } from '@/components/ui/button'
 import { EmptyState } from '@/components/ui/empty-state'
 import { Section } from '@/components/ui/section'
+import { CourseGridSkeleton } from '@/components/ui/skeleton'
 
-export default function HomePage() {
+function HomePageContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const searchQuery = searchParams.get('search') || ''
@@ -117,5 +118,22 @@ export default function HomePage() {
         )}
       </Section>
     </>
+  )
+}
+
+export default function HomePage() {
+  return (
+    <Suspense
+      fallback={
+        <>
+          <HeroSection />
+          <Section title="Meus cursos">
+            <CourseGridSkeleton />
+          </Section>
+        </>
+      }
+    >
+      <HomePageContent />
+    </Suspense>
   )
 }
