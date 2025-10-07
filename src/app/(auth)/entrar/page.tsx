@@ -104,6 +104,7 @@ export default function LoginPage() {
                       <FormLabel>Email</FormLabel>
                       <FormControl>
                         <Input
+                          className="h-11"
                           type="email"
                           placeholder="Digite aqui"
                           {...field}
@@ -122,6 +123,7 @@ export default function LoginPage() {
                       <FormLabel>Senha</FormLabel>
                       <FormControl>
                         <Input
+                          className="h-11"
                           type="password"
                           placeholder="Digite aqui"
                           {...field}
@@ -135,7 +137,7 @@ export default function LoginPage() {
                 <div className="flex items-center justify-between text-sm">
                   <Link
                     href="/recuperar-senha"
-                    className="text-evob-primary hover:underline"
+                    className="text-evob-primary font-medium hover:underline"
                   >
                     Esqueceu a senha?
                   </Link>
@@ -143,7 +145,7 @@ export default function LoginPage() {
 
                 <Button
                   type="submit"
-                  className="bg-evob-primary hover:bg-evob-hover w-full"
+                  className="bg-evob-primary hover:bg-evob-hover h-10.5 w-full text-xs font-medium"
                   disabled={isLoading}
                 >
                   {isLoading ? 'Entrando...' : 'Entrar'}
@@ -177,14 +179,24 @@ export default function LoginPage() {
 
       <div className="relative hidden w-1/2 lg:block">
         <Image
-          src="/images/signup-banner.webp"
-          alt="Login banner"
+          src="/images/signup-banner.png"
+          alt="Signup banner"
           fill
           priority
           className="object-cover"
           sizes="50vw"
-          quality={90}
+          quality={100}
         />
+        <div className="absolute right-0 bottom-0 left-0">
+          <Image
+            src="/images/signup-banner-footer.png"
+            alt="Signup banner footer"
+            width={800}
+            height={200}
+            className="h-auto w-full"
+            quality={100}
+          />
+        </div>
       </div>
     </div>
   )
