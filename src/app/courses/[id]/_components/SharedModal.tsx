@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { Copy } from 'lucide-react'
 import { FaWhatsapp } from 'react-icons/fa'
 import { toast } from 'sonner'
@@ -28,19 +27,13 @@ export function ShareModal({
   courseUrl,
   courseTitle,
 }: ShareModalProps) {
-  const [copied, setCopied] = useState(false)
-
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(courseUrl)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
       toast.success('Link copiado para a área de transferência!')
     } catch (error) {
       console.error('Error copying to clipboard:', error)
       toast.error('Erro ao copiar o link.')
-    } finally {
-      setCopied(false)
     }
   }
 

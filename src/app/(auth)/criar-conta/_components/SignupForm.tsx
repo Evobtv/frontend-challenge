@@ -73,7 +73,7 @@ export function SignupForm({ onSuccess }: SignupFormProps) {
         setIsLoading(false)
       }
     },
-    [onSuccess]
+    [form, onSuccess]
   )
 
   return (
