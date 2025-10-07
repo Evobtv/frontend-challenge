@@ -1,8 +1,7 @@
 'use client'
 
 import { memo, useCallback, useState } from 'react'
-
-import { useBrandData } from '@/hooks/useBrand'
+import { useBrand } from '@/contexts/BrandContext'
 
 import {
   FooterLinks,
@@ -14,7 +13,7 @@ import { PolicyModal } from './PolicyModal'
 
 const Footer = memo(function Footer() {
   const [openPolicy, setOpenPolicy] = useState<PolicyType | null>(null)
-  const { data: brandData } = useBrandData()
+  const { brandData } = useBrand()
 
   const handlePolicyClick = useCallback((type: PolicyType) => {
     setOpenPolicy(type)
@@ -41,7 +40,7 @@ const Footer = memo(function Footer() {
           <div className="hidden items-center justify-between md:flex">
             <SocialLinks className="flex items-center gap-5" />
 
-            <div className="gap-15 flex items-center">
+            <div className="flex items-center gap-15">
               <FooterLinks
                 className="flex items-center gap-8"
                 onPolicyClick={handlePolicyClick}
