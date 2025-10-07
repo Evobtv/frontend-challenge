@@ -4,6 +4,22 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* CUSTOM EVOB COLORS */
+  --color-evob-primary: #792bf9;
+  --color-evob-secondary: #383838;
+  --color-evob-hover: #e0d600;
+  --color-evob-dark: #252525;
+  --color-evob-green: #2b932f;
+  --color-evob-red: #e33f52;
+  --color-evob-bg: #f1f4fb;
+  --text-3.5xl: 2rem;
+  --text-4.5xl: 3.25rem;
+
+  /* FONTS */
+  --font-inter: var(--font-inter);
+  --font-quattrocento: var(--font-quattrocento);
+
+  /* DEFAULT SHADCN COLORS */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -118,5 +134,31 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
   }
 }
